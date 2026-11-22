@@ -1,0 +1,26 @@
+/* ================= TẬP PHẨM ================= */
+.col-block { padding: 72px 0 56px; }
+.col-block + .col-block { border-top: 1px solid var(--line); }
+.col-block:nth-child(even) { background: linear-gradient(180deg, var(--blush), var(--cream)); }
+.col-intro { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 0; margin-bottom: 30px; }
+.col-block:nth-child(even) .col-intro { grid-template-columns: 1fr 1.1fr; }
+.col-block:nth-child(even) .col-media { order: 2; }
+.col-media { position: relative; overflow: hidden; border-radius: 8px; aspect-ratio: 16 / 10; background: var(--cream-200); }
+.col-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 900ms var(--ease-out); }
+.col-text { padding: 24px clamp(24px, 5vw, 64px); }
+.col-text .ornament { margin-bottom: 8px; }
+.col-text h2 { font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 500; line-height: 1.1; }
+.col-text .tag { margin: 10px 0 14px; display: flex; align-items: center; gap: 12px; font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: var(--wine); }
+.col-text .tag::after { content: ''; width: 40px; height: 1px; background: currentColor; opacity: .5; }
+.col-text p.desc { color: #4a3437; max-width: 460px; }
+.col-text .read-more { margin-top: 18px; display: inline-flex; border-bottom: 1px solid currentColor; }
+.col-products.product-grid { gap: 28px 20px; }
+.col-products .product-media { aspect-ratio: 5 / 4; border-radius: 6px; }
+.col-empty { padding: 30px; text-align: center; font-family: var(--serif); font-style: italic; color: var(--muted); border: 1px dashed var(--line); border-radius: 6px; }
+@media (hover: hover) and (pointer: fine) { .col-media:hover img { transform: scale(1.03); } }
+@media (max-width: 860px) {
+  .col-intro, .col-block:nth-child(even) .col-intro { grid-template-columns: 1fr; }
+  .col-block:nth-child(even) .col-media { order: 0; }
+  .col-text { padding: 22px 4px 4px; }
+  .col-block { padding: 48px 0 40px; }
+}

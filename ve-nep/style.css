@@ -1,0 +1,16 @@
+/* ================= VỀ NẾP ================= */
+.stories { padding: 10px 0 70px; }
+.story { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 6vw, 80px); align-items: center; padding: 46px 0; }
+.story + .story { border-top: 1px solid var(--line); }
+.story:nth-child(even) .story-media { order: 2; }
+.story-media { position: relative; overflow: hidden; border-radius: 8px; aspect-ratio: 4 / 3; background: var(--cream-200); }
+.story-media img { width: 100%; height: 100%; object-fit: cover; }
+.story-media::after { content: ''; position: absolute; inset: 12px; border: 1px solid rgba(251, 243, 234, .6); border-radius: 4px; pointer-events: none; }
+.story-text .ornament { margin-bottom: 10px; }
+.story-text h2 { font-size: clamp(2rem, 3.6vw, 2.8rem); font-weight: 500; line-height: 1.15; margin-bottom: 16px; }
+.story-text .lead { font-family: var(--serif); font-style: italic; font-size: 1.2rem; color: #5a4245; margin-bottom: 14px; }
+.stories .empty-state { text-align: center; padding: 60px 0; }
+@media (max-width: 860px) {
+  .story { grid-template-columns: 1fr; padding: 32px 0; }
+  .story:nth-child(even) .story-media { order: 0; }
+}

@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#800020">
+  <title>Quản trị | Nếp Cài</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/images/brand/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/images/brand/apple-touch-icon.png">
+  <link rel="preload" href="../assets/fonts/tex-gyre-pagella-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+  <div class="admin">
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="../home/index.html" id="brand"></a>
+      <nav class="side-nav" aria-label="Quản trị">
+        <button class="side-link" data-view="dashboard">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+          Tổng quan
+        </button>
+
+        <span class="side-group">Đơn hàng</span>
+        <button class="side-link" data-view="orders">
+          <svg viewBox="0 0 24 24"><path d="M6 3h12l1 4H5l1-4Z"/><path d="M5 7h14v13H5z"/><path d="M9 11h6M9 15h4"/></svg>
+          Tất cả đơn hàng
+          <span class="side-badge" id="badge-pending" hidden>0</span>
+        </button>
+        <button class="side-link" data-view="shipping">
+          <svg viewBox="0 0 24 24"><path d="M3 6h11v10H3z"/><path d="M14 9h4l3 3v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+          Vận chuyển
+          <span class="side-badge" id="badge-ship" hidden>0</span>
+        </button>
+
+        <span class="side-group">Sản phẩm</span>
+        <button class="side-link" data-view="collections">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
+          Bộ sưu tập
+        </button>
+        <button class="side-link" data-view="products">
+          <svg viewBox="0 0 24 24"><path d="M12 3c-2 3-2 6 0 9s2 6 0 9"/><circle cx="12" cy="12" r="3"/></svg>
+          Sản phẩm
+        </button>
+        <button class="side-link" data-view="stock">
+          <svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4Z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>
+          Tồn kho
+          <span class="side-badge warn" id="badge-stock" hidden>0</span>
+        </button>
+
+        <span class="side-group">Blog</span>
+        <button class="side-link" data-view="ve-nep">
+          <svg viewBox="0 0 24 24"><path d="M4 4h10l6 6v10H4z"/><path d="M14 4v6h6M8 14h8M8 17h5"/></svg>
+          Về Nếp
+        </button>
+        <button class="side-link" data-view="goc-nep">
+          <svg viewBox="0 0 24 24"><path d="M4 19V5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h12"/><path d="M9 7h6"/></svg>
+          Góc Nếp
+        </button>
+
+        <span class="side-group">Giao diện</span>
+        <button class="side-link" data-view="banners">
+          <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m2 16 6-5 4 4 3-3 7 6"/></svg>
+          Banner trang chủ
+        </button>
+
+        <span class="side-group">Báo cáo</span>
+        <button class="side-link" data-view="reports">
+          <svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+          Doanh thu &amp; Báo cáo
+        </button>
+        <button class="side-link" data-view="customers">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M16 3.5a4 4 0 0 1 0 8M22 21a7 7 0 0 0-4-6.3"/></svg>
+          Khách hàng
+        </button>
+        <button class="side-link" data-view="subscribers">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          Đăng ký nhận tin
+        </button>
+      </nav>
+      <div class="side-foot">
+        <div class="me">
+          <span class="me-avatar" id="meAvatar">A</span>
+          <div><strong id="meName">Admin</strong><small id="meEmail"></small></div>
+        </div>
+        <a class="side-small" href="../home/index.html" target="_blank" rel="noopener">Xem cửa hàng ↗</a>
+        <button class="side-small" id="logoutBtn">Đăng xuất</button>
+      </div>
+    </aside>
+    <div class="sidebar-backdrop" id="backdrop"></div>
+
+    <!-- ================= MAIN ================= -->
+    <main class="main">
+      <header class="topbar">
+        <button class="menu-btn" id="menuBtn" aria-label="Menu">
+          <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        </button>
+        <div>
+          <span class="eyebrow" id="viewEyebrow">Quản trị</span>
+          <h1 id="viewTitle">Tổng quan</h1>
+        </div>
+        <span class="today" id="today"></span>
+      </header>
+
+      <!-- ========== TỔNG QUAN ========== -->
+      <section class="view" id="view-dashboard">
+        <div class="kpis kpis-4" id="dashKpis"></div>
+        <div class="dash-grid">
+          <div class="card dash-chart">
+            <div class="card-head row">
+              <h2>Doanh thu</h2>
+              <select class="select" id="dashRange" aria-label="Khoảng thời gian">
+                <option value="7">7 ngày qua</option>
+                <option value="30">30 ngày qua</option>
+              </select>
+            </div>
+            <div class="chart-box"><canvas id="dashChart"></canvas></div>
+          </div>
+          <div class="card dash-stock">
+            <div class="card-head"><h2>Tồn kho</h2></div>
+            <div class="donut-box"><canvas id="stockDonut"></canvas><div class="donut-center" id="donutCenter"></div></div>
+            <ul class="legend" id="stockLegend"></ul>
+          </div>
+          <div class="card dash-recent table-card">
+            <div class="card-head row"><h2>Đơn hàng gần đây</h2><button class="link-btn" data-go="orders">Xem tất cả →</button></div>
+            <table class="table table-click compact">
+              <thead><tr><th>Mã đơn</th><th>Khách hàng</th><th>Ngày</th><th>Trạng thái</th><th class="num">Tổng tiền</th></tr></thead>
+              <tbody id="recentBody"></tbody>
+            </table>
+          </div>
+          <div class="dash-side">
+            <div class="card latest-post" id="latestPost"></div>
+            <div class="card quick">
+              <div class="card-head"><h2>Thao tác nhanh</h2></div>
+              <div class="quick-grid">
+                <button data-quick="product"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Thêm sản phẩm</button>
+                <button data-quick="post"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4Z"/></svg>Viết bài mới</button>
+                <button data-quick="collection"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg>Tạo bộ sưu tập</button>
+                <button data-quick="banner"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m2 16 6-5 4 4 3-3 7 6"/></svg>Thêm banner</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== ĐƠN HÀNG / VẬN CHUYỂN (dùng chung) ========== -->
+      <section class="view" id="view-orders">
+        <div class="toolbar">
+          <div class="chips" id="statusChips" role="tablist"></div>
+          <div class="search">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+            <input type="search" id="orderSearch" placeholder="Tìm mã đơn, tên, SĐT, email…">
+          </div>
+        </div>
+        <div class="card table-card">
+          <table class="table table-click">
+            <thead><tr><th>Mã đơn</th><th>Khách hàng</th><th>Giao đến</th><th>Ngày đặt</th><th>Trạng thái</th><th class="num">Tổng tiền</th></tr></thead>
+            <tbody id="ordersBody"></tbody>
+          </table>
+        </div>
+        <p class="muted hint" id="ordersHint"></p>
+      </section>
+
+      <!-- ========== BỘ SƯU TẬP ========== -->
+      <section class="view" id="view-collections">
+        <div class="toolbar">
+          <p class="muted">Bộ sưu tập (Tập phẩm) hiển thị ở trang chủ và trang Tập phẩm. Mỗi sản phẩm phải thuộc một bộ sưu tập.</p>
+          <button class="btn" id="addCollectionBtn">+ Tạo bộ sưu tập</button>
+        </div>
+        <div class="col-grid" id="colGrid"></div>
+      </section>
+
+      <!-- ========== SẢN PHẨM ========== -->
+      <section class="view" id="view-products">
+        <div class="toolbar">
+          <div class="tb-left">
+            <div class="search">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+              <input type="search" id="prodSearch" placeholder="Tìm theo tên hoặc mã…">
+            </div>
+            <select class="select" id="prodColFilter" aria-label="Lọc bộ sưu tập"><option value="">Tất cả bộ sưu tập</option></select>
+          </div>
+          <button class="btn" id="addProductBtn">+ Thêm sản phẩm</button>
+        </div>
+        <div class="card table-card">
+          <table class="table">
+            <thead><tr><th>Ảnh</th><th>Sản phẩm</th><th>Bộ sưu tập</th><th>Loại</th><th title="Hiện ở mục Trâm cài nổi bật">Nổi bật</th><th class="num">Giá</th><th class="num">Kho</th><th></th></tr></thead>
+            <tbody id="prodBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ========== TỒN KHO ========== -->
+      <section class="view" id="view-stock">
+        <div class="toolbar">
+          <div class="chips" id="stockChips">
+            <button class="chip active" data-f="all">Tất cả <span data-sc="all">0</span></button>
+            <button class="chip" data-f="low">Sắp hết (1–3) <span data-sc="low">0</span></button>
+            <button class="chip" data-f="out">Hết hàng <span data-sc="out">0</span></button>
+          </div>
+          <div class="search">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+            <input type="search" id="stockSearch" placeholder="Tìm sản phẩm…">
+          </div>
+        </div>
+        <div class="card table-card">
+          <table class="table">
+            <thead><tr><th>Ảnh</th><th>Sản phẩm</th><th>Bộ sưu tập</th><th class="num">Đã bán</th><th>Trạng thái</th><th class="num">Số lượng tồn</th></tr></thead>
+            <tbody id="stockBody"></tbody>
+          </table>
+        </div>
+        <p class="muted hint">Bấm − / + hoặc gõ số rồi nhấn Enter — số lượng được lưu ngay. Đơn hàng bị huỷ/hoàn sẽ tự cộng lại vào kho.</p>
+      </section>
+
+      <!-- ========== BLOG (Về Nếp / Góc Nếp dùng chung) ========== -->
+      <section class="view" id="view-blog">
+        <div class="toolbar">
+          <div class="chips" id="postChips"></div>
+          <button class="btn" id="addPostBtn">+ Viết bài mới</button>
+        </div>
+        <div class="card table-card">
+          <table class="table">
+            <thead id="postHead"></thead>
+            <tbody id="postBody"></tbody>
+          </table>
+        </div>
+        <p class="muted hint" id="blogHint"></p>
+      </section>
+
+      <!-- ========== BANNER ========== -->
+      <section class="view" id="view-banners">
+        <div class="toolbar">
+          <p class="muted">Ảnh trình chiếu ở đầu trang chủ, chạy theo thứ tự bên dưới. Kích thước đẹp nhất: <strong>2048 × 768 px</strong> (tỉ lệ 8:3), tối đa 5MB.</p>
+          <label class="btn" id="bannerUploadBtn">
+            + Thêm ảnh banner
+            <input type="file" id="bannerFiles" accept="image/png,image/jpeg,image/webp" multiple hidden>
+          </label>
+        </div>
+        <div class="banner-list" id="bannerList"></div>
+      </section>
+
+      <!-- ========== DOANH THU & BÁO CÁO ========== -->
+      <section class="view" id="view-reports">
+        <div class="toolbar">
+          <p class="muted">Doanh thu chỉ tính đơn <strong>Đã giao</strong>, theo ngày giao thành công.</p>
+          <select class="select" id="yearSelect" aria-label="Năm"></select>
+        </div>
+        <div class="kpis kpis-4">
+          <div class="kpi card"><span>Doanh thu cả năm</span><strong id="yrRevenue">—</strong></div>
+          <div class="kpi card"><span>Đơn đã giao</span><strong id="yrOrders">—</strong></div>
+          <div class="kpi card"><span>Tháng cao nhất</span><strong id="yrBest">—</strong></div>
+          <div class="kpi card"><span>Giá trị TB / đơn</span><strong id="yrAvg">—</strong></div>
+        </div>
+        <div class="card chart-card"><canvas id="revenueChart"></canvas></div>
+        <div class="report-grid">
+          <div class="card table-card">
+            <div class="card-head"><h2>Sản phẩm bán chạy trong năm</h2></div>
+            <table class="table compact">
+              <thead><tr><th>#</th><th>Sản phẩm</th><th class="num">Đã bán</th><th class="num">Doanh thu</th></tr></thead>
+              <tbody id="topBody"></tbody>
+            </table>
+          </div>
+          <div class="card all-time">
+            <div class="card-head"><h2>Từ trước đến nay</h2></div>
+            <dl id="allTime"></dl>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== KHÁCH HÀNG ========== -->
+      <section class="view" id="view-customers">
+        <div class="toolbar">
+          <div class="search">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+            <input type="search" id="custSearch" placeholder="Tìm tên, email, SĐT…">
+          </div>
+          <span class="muted" id="custCount"></span>
+        </div>
+        <div class="card table-card">
+          <table class="table table-click">
+            <thead><tr><th>Khách hàng</th><th>Điện thoại</th><th>Địa chỉ</th><th class="num">Số đơn</th><th class="num">Đã chi</th><th>Ngày tham gia</th></tr></thead>
+            <tbody id="custBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ========== ĐĂNG KÝ NHẬN TIN ========== -->
+      <section class="view" id="view-subscribers">
+        <div class="toolbar">
+          <p class="muted">Email khách để lại ở ô “Nương ơi, cùng Nếp lưu giữ nếp Việt” cuối mỗi trang.</p>
+          <button class="btn btn-ghost" id="copyEmails">Sao chép tất cả email</button>
+        </div>
+        <div class="card table-card">
+          <table class="table compact">
+            <thead><tr><th>Email</th><th>Ngày đăng ký</th><th></th></tr></thead>
+            <tbody id="subBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ================= MODAL: SẢN PHẨM ================= -->
+  <div class="modal" id="productModal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <form class="modal-box modal-lg" id="productForm" novalidate>
+      <header class="modal-head">
+        <h2 id="pfTitle">Thêm sản phẩm</h2>
+        <button type="button" class="modal-x" data-close aria-label="Đóng">×</button>
+      </header>
+      <div class="modal-body">
+        <div class="media-col">
+          <span class="lbl">Ảnh chính *</span>
+          <label class="dropzone" data-dz="pfImage">
+            <input type="file" id="pfImage" accept="image/png,image/jpeg,image/webp,image/gif">
+            <img alt="" hidden>
+            <span class="dz-text"><strong>Chọn ảnh</strong><br>hoặc kéo thả vào đây<br><small>JPG, PNG, WEBP · tối đa 5MB</small></span>
+          </label>
+          <span class="lbl">Ảnh phụ (thư viện ảnh)</span>
+          <div class="gallery-edit" id="pfGallery"></div>
+          <small class="muted">Dùng ← → để đổi thứ tự. Ảnh hiện dưới ảnh chính ở trang chi tiết.</small>
+        </div>
+        <div class="fields">
+          <div class="field-row">
+            <div class="field"><label for="pfSku">Mã sản phẩm *</label><input class="input" id="pfSku" placeholder="NC-SEN-01" autocapitalize="characters"></div>
+            <div class="field"><label for="pfName">Tên sản phẩm *</label><input class="input" id="pfName" placeholder="Trâm Sen Hồng"></div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="pfCollection">Thuộc bộ sưu tập *</label>
+              <select class="select" id="pfCollection"></select>
+            </div>
+            <div class="field">
+              <label for="pfCategory">Loại</label>
+              <select class="select" id="pfCategory">
+                <option value="tram-cai">Trâm cài</option>
+                <option value="vong-tram">Vòng trâm</option>
+                <option value="cay-tram">Cây trâm</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label for="pfPrice">Giá (VND) *</label><input class="input" id="pfPrice" type="number" min="0" step="1000" inputmode="numeric" placeholder="250000"></div>
+            <div class="field"><label for="pfStock">Số lượng *</label><input class="input" id="pfStock" type="number" min="0" step="1" inputmode="numeric" placeholder="10"></div>
+          </div>
+          <label class="switch"><input type="checkbox" id="pfFeatured"><span></span>Hiện ở mục “Trâm cài nổi bật” trên trang chủ</label>
+          <div class="field"><label for="pfTagline">Câu giới thiệu ngắn</label><input class="input" id="pfTagline" placeholder="Thanh khiết như sen, dịu dàng như nàng"></div>
+          <div class="tabbed">
+            <div class="mini-tabs" role="tablist">
+              <button type="button" class="active" data-pt="pfDesc">Mô tả / ý nghĩa</button>
+              <button type="button" data-pt="pfMaterial">Chất liệu &amp; KT</button>
+              <button type="button" data-pt="pfUsage">HD sử dụng</button>
+              <button type="button" data-pt="pfCare">Bảo quản</button>
+            </div>
+            <textarea class="input" id="pfDesc" rows="6" placeholder="Ý nghĩa sản phẩm, câu chuyện… (hiện ở trang chi tiết và trang bộ sưu tập)"></textarea>
+            <textarea class="input" id="pfMaterial" rows="6" placeholder="- Chất liệu: đất sét nung&#10;- Kích thước: 12 × 3 cm" hidden></textarea>
+            <textarea class="input" id="pfUsage" rows="6" placeholder="Để trống sẽ dùng hướng dẫn mặc định" hidden></textarea>
+            <textarea class="input" id="pfCare" rows="6" placeholder="Để trống sẽ dùng hướng dẫn mặc định" hidden></textarea>
+            <small class="muted fmt-hint">Định dạng: dòng trống = đoạn mới · <code>## </code> tiêu đề nhỏ · <code>- </code> gạch đầu dòng · <code>**đậm**</code></small>
+          </div>
+        </div>
+      </div>
+      <p class="form-msg" id="pfMsg"></p>
+      <footer class="modal-foot">
+        <button type="button" class="btn btn-ghost" data-close>Huỷ</button>
+        <button type="submit" class="btn" id="pfSave">Lưu sản phẩm</button>
+      </footer>
+    </form>
+  </div>
+
+  <!-- ================= MODAL: BỘ SƯU TẬP ================= -->
+  <div class="modal" id="collectionModal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <form class="modal-box" id="collectionForm" novalidate>
+      <header class="modal-head">
+        <h2 id="cfTitle">Tạo bộ sưu tập</h2>
+        <button type="button" class="modal-x" data-close aria-label="Đóng">×</button>
+      </header>
+      <div class="modal-body">
+        <div class="media-col">
+          <span class="lbl">Hình bộ sưu tập *</span>
+          <label class="dropzone square" data-dz="cfImage">
+            <input type="file" id="cfImage" accept="image/png,image/jpeg,image/webp">
+            <img alt="" hidden>
+            <span class="dz-text"><strong>Chọn ảnh</strong><br>ảnh vuông đẹp nhất<br><small>tối đa 5MB</small></span>
+          </label>
+        </div>
+        <div class="fields">
+          <div class="field"><label for="cfName">Tên bộ sưu tập *</label><input class="input" id="cfName" placeholder="Tựa Sen, Duyên Trầu"></div>
+          <div class="field"><label for="cfTagline">Câu giới thiệu</label><input class="input" id="cfTagline" placeholder="Nét thanh tao của sen, sắc thắm của trầu cau"></div>
+          <div class="field"><label for="cfDesc">Ý nghĩa bộ sưu tập</label><textarea class="input" id="cfDesc" rows="6" placeholder="Câu chuyện, cảm hứng… (dòng trống = đoạn mới)"></textarea></div>
+          <div class="field"><label for="cfQuote">Câu trích dẫn</label><input class="input" id="cfQuote" placeholder="“Gần bùn mà chẳng hôi tanh mùi bùn”"></div>
+          <div class="field-row">
+            <div class="field"><label for="cfSort">Thứ tự hiển thị</label><input class="input" id="cfSort" type="number" step="1" inputmode="numeric" value="0"></div>
+            <label class="switch self-end"><input type="checkbox" id="cfFeatured" checked><span></span>Nổi bật trên trang chủ</label>
+          </div>
+        </div>
+      </div>
+      <p class="form-msg" id="cfMsg"></p>
+      <footer class="modal-foot">
+        <button type="button" class="btn btn-ghost" data-close>Huỷ</button>
+        <button type="submit" class="btn" id="cfSave">Lưu bộ sưu tập</button>
+      </footer>
+    </form>
+  </div>
+
+  <!-- ================= MODAL: BÀI VIẾT ================= -->
+  <div class="modal" id="postModal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <form class="modal-box modal-lg" id="postForm" novalidate>
+      <header class="modal-head">
+        <h2 id="poTitle">Viết bài mới</h2>
+        <button type="button" class="modal-x" data-close aria-label="Đóng">×</button>
+      </header>
+      <div class="modal-body">
+        <div class="media-col">
+          <span class="lbl">Ảnh bìa</span>
+          <label class="dropzone wide" data-dz="poCover">
+            <input type="file" id="poCover" accept="image/png,image/jpeg,image/webp">
+            <img alt="" hidden>
+            <span class="dz-text"><strong>Chọn ảnh bìa</strong><br>ngang 16:10 đẹp nhất</span>
+          </label>
+          <label class="switch"><input type="checkbox" id="poPublished" checked><span></span>Đăng công khai</label>
+          <div class="field"><label for="poDate">Ngày đăng</label><input class="input" id="poDate" type="date"></div>
+          <div class="field" id="poCatField"><label for="poCategory">Chủ đề *</label>
+            <select class="select" id="poCategory">
+              <option value="van-hoa">Văn hoá Việt</option>
+              <option value="thu-cong">Thủ công đất sét</option>
+              <option value="lam-dep">Làm đẹp cùng Nếp</option>
+              <option value="cam-hung">Cảm hứng từ Nếp</option>
+            </select>
+          </div>
+          <div class="field" id="poSortField"><label for="poSort">Thứ tự trên trang Về Nếp</label><input class="input" id="poSort" type="number" step="1" inputmode="numeric" value="0"></div>
+        </div>
+        <div class="fields">
+          <div class="field"><label for="poTitleInput">Tiêu đề *</label><input class="input" id="poTitleInput" placeholder="Tiêu đề bài viết"></div>
+          <div class="field"><label for="poExcerpt">Tóm tắt</label><textarea class="input" id="poExcerpt" rows="2" placeholder="1–2 câu hiện ở thẻ bài viết"></textarea></div>
+          <div class="tabbed">
+            <div class="mini-tabs" role="tablist">
+              <button type="button" class="active" data-pv="write">Nội dung *</button>
+              <button type="button" data-pv="preview">Xem trước</button>
+            </div>
+            <textarea class="input" id="poContent" rows="14" placeholder="Viết nội dung…&#10;&#10;## Tiêu đề nhỏ&#10;Đoạn văn…&#10;&#10;- Ý thứ nhất&#10;- Ý thứ hai"></textarea>
+            <div class="preview prose" id="poPreview" hidden></div>
+            <small class="muted fmt-hint">Định dạng: dòng trống = đoạn mới · <code>## </code> tiêu đề nhỏ · <code>- </code> gạch đầu dòng · <code>**đậm**</code> · <code>*nghiêng*</code></small>
+          </div>
+        </div>
+      </div>
+      <p class="form-msg" id="poMsg"></p>
+      <footer class="modal-foot">
+        <button type="button" class="btn btn-ghost" data-close>Huỷ</button>
+        <button type="submit" class="btn" id="poSave">Lưu bài viết</button>
+      </footer>
+    </form>
+  </div>
+
+  <!-- ================= HỘP XÁC NHẬN (dùng chung) ================= -->
+  <div class="modal" id="confirmModal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-box modal-sm">
+      <header class="modal-head"><h2 id="confirmTitle">Xoá?</h2></header>
+      <p class="modal-body-text" id="confirmText"></p>
+      <footer class="modal-foot">
+        <button type="button" class="btn btn-ghost" data-close>Huỷ</button>
+        <button type="button" class="btn btn-danger" id="confirmYes">Xoá</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ================= NGĂN KÉO: CHI TIẾT ĐƠN ================= -->
+  <div class="drawer" id="orderDrawer" aria-hidden="true">
+    <div class="drawer-backdrop" data-close-drawer></div>
+    <aside class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+      <header class="drawer-head">
+        <div>
+          <span class="eyebrow" id="drawerDate"></span>
+          <h2 id="drawerTitle">Đơn hàng</h2>
+        </div>
+        <button type="button" class="modal-x" data-close-drawer aria-label="Đóng">×</button>
+      </header>
+      <div class="drawer-body" id="drawerBody"></div>
+      <footer class="drawer-foot">
+        <span class="eyebrow">Cập nhật trạng thái</span>
+        <div class="status-actions" id="statusActions"></div>
+        <p class="form-msg" id="drawerMsg"></p>
+      </footer>
+    </aside>
+  </div>
+
+  <!-- ================= NGĂN KÉO: KHÁCH HÀNG ================= -->
+  <div class="drawer" id="custDrawer" aria-hidden="true">
+    <div class="drawer-backdrop" data-close-drawer></div>
+    <aside class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="custTitle">
+      <header class="drawer-head">
+        <div>
+          <span class="eyebrow" id="custSince"></span>
+          <h2 id="custTitle">Khách hàng</h2>
+        </div>
+        <button type="button" class="modal-x" data-close-drawer aria-label="Đóng">×</button>
+      </header>
+      <div class="drawer-body" id="custBodyDrawer"></div>
+    </aside>
+  </div>
+
+  <div class="toast-wrap" id="toastWrap"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/common.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/orders.js"></script>
+  <script src="js/catalog.js"></script>
+  <script src="js/blog.js"></script>
+  <script src="js/banners.js"></script>
+  <script src="js/reports.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

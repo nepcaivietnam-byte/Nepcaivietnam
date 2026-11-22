@@ -1,0 +1,39 @@
+/* ================= CHI TIẾT TẬP PHẨM ================= */
+.col-hero { min-height: clamp(300px, 34vw, 440px); background-position: 70% center; }
+.col-hero .eyebrow { font-family: var(--serif); font-size: 1rem; letter-spacing: .3em; }
+.col-hero h1 { line-height: 1.05; }
+
+.meaning { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; background: linear-gradient(90deg, #F3E4D2, var(--blush)); }
+.meaning-media { position: relative; min-height: 360px; overflow: hidden; }
+.meaning-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.meaning-text { padding: 56px clamp(24px, 6vw, 90px); text-align: center; }
+.meaning-text .title-lotus { margin-bottom: 18px; }
+.meaning-text .prose { max-width: 560px; margin-inline: auto; }
+.meaning-text .quote { margin-top: 18px; font-family: var(--serif); font-style: italic; font-size: 1.25rem; color: var(--wine); white-space: pre-line; }
+
+.item-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.item { display: grid; grid-template-columns: 200px 1fr; gap: 22px; align-items: center; padding: 26px; border-bottom: 1px solid var(--line); }
+.item:nth-child(odd) { border-right: 1px solid var(--line); }
+.item-media { aspect-ratio: 1; overflow: hidden; border-radius: 8px; background: var(--cream-200); }
+.item-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 700ms var(--ease-out); }
+.item h3 { font-size: 1.5rem; font-weight: 500; }
+.item h3 a { color: var(--ink); }
+.item .tag { font-family: var(--serif); font-style: italic; color: var(--wine); font-size: 1.05rem; }
+.item .price { margin-top: 4px; color: var(--wine); font-size: .92rem; letter-spacing: .04em; }
+.item .desc { margin-top: 8px; font-size: .88rem; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.item .acts { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+.item .acts .btn { padding: 10px 16px; font-size: .64rem; letter-spacing: .14em; }
+.not-found { padding: 100px 0; text-align: center; }
+.not-found h1 { font-size: 2.6rem; font-weight: 400; margin-bottom: 20px; }
+@media (hover: hover) and (pointer: fine) { .item:hover .item-media img { transform: scale(1.05); } .item h3 a:hover { color: var(--wine); } }
+@media (max-width: 960px) {
+  .meaning { grid-template-columns: 1fr; }
+  .meaning-media { min-height: 240px; }
+  .item-grid { grid-template-columns: 1fr; }
+  .item:nth-child(odd) { border-right: 0; }
+}
+@media (max-width: 560px) {
+  .item { grid-template-columns: 110px 1fr; gap: 14px; padding: 18px 0; align-items: start; }
+  .item h3 { font-size: 1.25rem; }
+  .item .acts { display: grid; grid-template-columns: 1fr 1fr; }
+}

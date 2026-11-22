@@ -1,0 +1,11 @@
+/* =========================================================
+   FONT NỘI DUNG: TeX Gyre Pagella (tự host, bản cắt gọn Latin + tiếng Việt)
+   Tiêu đề vẫn dùng Cormorant Garamond (tải từ Google Fonts trong <head> mỗi trang)
+   Giấy phép: GUST Font License — xem assets/fonts/GUST-FONT-LICENSE.txt
+   Font có 2 độ đậm: 400 (thường) và 700 (đậm); các độ đậm 300/500/600 trong CSS
+   sẽ được trình duyệt quy về độ gần nhất.
+   ========================================================= */
+@font-face { font-family: 'TeX Gyre Pagella'; src: url('../fonts/tex-gyre-pagella-regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'TeX Gyre Pagella'; src: url('../fonts/tex-gyre-pagella-italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'TeX Gyre Pagella'; src: url('../fonts/tex-gyre-pagella-bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'TeX Gyre Pagella'; src: url('../fonts/tex-gyre-pagella-bolditalic.woff2') format('woff2'); font-weight: 700; font-style: italic; font-display: swap; }

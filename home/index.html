@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#800020">
+  <title>Nếp Cài | Trâm cài đất sét nặn tay</title>
+  <meta name="description" content="Nếp Cài — Cài một nét Xưa, giữ một nếp Việt. Trâm cài mang dấu ấn Việt, thiết kế và chế tác thủ công từ đất sét.">
+  <link rel="icon" href="../assets/images/brand/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/images/brand/apple-touch-icon.png">
+  <link rel="preload" href="../assets/fonts/tex-gyre-pagella-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="style.css">
+  <meta property="og:title" content="Nếp Cài — Cài một nét Xưa, giữ một nếp Việt">
+  <meta property="og:image" content="../assets/images/brand/banner-1280.jpg">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <!-- 1. BANNER TRÌNH CHIẾU (ảnh do admin thêm ở mục "Banner trang chủ") -->
+    <section class="hero" aria-roledescription="carousel" aria-label="Banner Nếp Cài">
+      <div class="slides" id="slides">
+        <div class="slide is-active">
+          <img src="../assets/images/brand/banner-1280.jpg" srcset="../assets/images/brand/banner-768.jpg 768w, ../assets/images/brand/banner-1280.jpg 1280w, ../assets/images/brand/banner-2048.jpg 2048w" sizes="100vw" alt="Nếp Cài — Cài một nét Xưa, giữ một nếp Việt" fetchpriority="high">
+        </div>
+      </div>
+      <button class="slide-nav prev" id="slidePrev" type="button" aria-label="Ảnh trước" hidden></button>
+      <button class="slide-nav next" id="slideNext" type="button" aria-label="Ảnh sau" hidden></button>
+      <div class="dots" id="dots" role="tablist" aria-label="Chọn ảnh"></div>
+    </section>
+
+    <div class="intro-line">
+      <div class="container">
+        <span class="ornament" data-lotus><i></i><i></i></span>
+        <p class="reveal">Trâm cài mang dấu ấn Việt – <em>Thiết kế và chế tác thủ công từ đất sét</em></p>
+      </div>
+    </div>
+
+    <!-- 2. TẬP PHẨM NỔI BẬT -->
+    <section class="section featured-cols">
+      <div class="container">
+        <div class="title-lotus caps reveal" data-lotus><h2>Tập phẩm nổi bật</h2></div>
+        <div class="col-feature-grid" id="featuredCollections"></div>
+        <div class="section-foot reveal"><a class="btn btn-outline btn-pill" href="../tap-pham/index.html">Xem tất cả tập phẩm</a></div>
+      </div>
+    </section>
+
+    <!-- 3. TRÂM CÀI NỔI BẬT -->
+    <section class="section featured-products">
+      <div class="container">
+        <div class="title-lotus caps reveal" data-lotus><h2>Trâm cài nổi bật</h2></div>
+        <div class="product-grid" id="featuredProducts"></div>
+        <div class="section-foot reveal"><a class="btn btn-outline btn-pill" href="../tram-cai/index.html">Xem tất cả</a></div>
+      </div>
+    </section>
+
+    <!-- 4. VỀ NẾP -->
+    <section class="about" id="about">
+      <div class="about-media reveal"><img class="reveal-img" id="aboutImg" src="../assets/images/story-trio.jpg" alt="Trâm cài đất sét Nếp Cài" loading="lazy"></div>
+      <div class="about-text reveal" style="--d:1">
+        <span class="ornament" data-lotus><i></i><i></i></span>
+        <h2>Về Nếp</h2>
+        <p id="aboutExcerpt">Nếp Cài là thương hiệu chuyên thiết kế và chế tác trâm cài tóc thủ công từ đất sét, mang những nét đẹp văn hóa Việt vào phụ kiện đương đại.</p>
+        <a class="read-more" href="../ve-nep/index.html">Tìm hiểu thêm <span data-chev></span></a>
+      </div>
+    </section>
+
+    <!-- 5. GÓC NẾP -->
+    <section class="section corner">
+      <div class="container">
+        <div class="title-lotus reveal" data-lotus><h2>Cảm hứng từ văn hóa Việt</h2></div>
+        <div class="corner-grid" id="cornerPosts"></div>
+        <div class="section-foot reveal"><a class="btn btn-outline btn-pill" href="../goc-nep/index.html">Đến Góc Nếp</a></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/common.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

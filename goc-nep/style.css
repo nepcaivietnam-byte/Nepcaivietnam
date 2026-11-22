@@ -1,0 +1,22 @@
+/* ================= GÓC NẾP ================= */
+.post-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.post-grid .post-card { grid-template-columns: 1fr; }
+.post-grid .post-card .pc-media img { aspect-ratio: 16 / 11; min-height: 0; }
+.post-feature { display: grid; grid-template-columns: 1.3fr 1fr; margin-bottom: 26px; overflow: hidden; border-radius: 8px; background: #FFFAF4; border: 1px solid var(--line); transition: box-shadow 250ms ease, transform var(--dur-press) var(--ease-out); }
+.post-feature:active { transform: scale(.995); }
+.post-feature .pf-media { position: relative; overflow: hidden; aspect-ratio: 16 / 10; background: var(--cream-200); }
+.post-feature .pf-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 800ms var(--ease-out); }
+.post-feature .pf-body { display: flex; flex-direction: column; justify-content: center; gap: 12px; padding: clamp(24px, 4vw, 48px); }
+.post-feature h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 500; line-height: 1.15; color: var(--ink); }
+.post-feature p { color: var(--muted); }
+.post-feature time { font-size: .78rem; color: var(--muted); letter-spacing: .06em; }
+.post-grid .empty-state { grid-column: 1 / -1; text-align: center; padding: 50px 0; }
+@media (hover: hover) and (pointer: fine) {
+  .post-feature:hover { box-shadow: 0 18px 40px rgba(92, 0, 23, .1); }
+  .post-feature:hover .pf-media img { transform: scale(1.04); }
+}
+@media (max-width: 960px) { .post-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 720px) {
+  .post-feature { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) { .post-grid { grid-template-columns: 1fr; } }

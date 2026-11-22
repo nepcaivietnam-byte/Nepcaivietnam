@@ -1,0 +1,21 @@
+/* ================= CHÍNH SÁCH & HỖ TRỢ ================= */
+.policy { display: grid; grid-template-columns: 240px 1fr; gap: 56px; padding: 56px 0 90px; }
+.policy-nav { position: sticky; top: calc(var(--header-h) + 24px); align-self: start; display: flex; flex-direction: column; border-left: 1px solid var(--line); }
+.policy-nav a { padding: 9px 18px; margin-left: -1px; border-left: 2px solid transparent; font-family: var(--serif); font-size: 1.1rem; color: var(--muted); transition: color 150ms ease, border-color 150ms ease; }
+.policy-nav a.active { color: var(--wine); border-left-color: var(--wine); }
+.policy-body section { padding-bottom: 36px; margin-bottom: 36px; border-bottom: 1px solid var(--line); scroll-margin-top: calc(var(--header-h) + 24px); }
+.policy-body section:last-child { border-bottom: 0; }
+.policy-body h2 { margin-bottom: 14px; font-size: 2.1rem; font-weight: 500; }
+.contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.contact-card { display: flex; align-items: center; gap: 12px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 6px; background: #FFFAF4; transition: border-color 150ms ease, transform var(--dur-press) var(--ease-out); }
+.contact-card:active { transform: scale(.98); }
+.contact-card svg { width: 22px; height: 22px; color: var(--wine); flex: none; }
+.contact-card span { display: flex; flex-direction: column; line-height: 1.4; }
+.contact-card small { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+@media (hover: hover) and (pointer: fine) { .policy-nav a:hover { color: var(--wine); } .contact-card:hover { border-color: var(--wine); } }
+@media (max-width: 860px) {
+  .policy { grid-template-columns: 1fr; gap: 24px; padding-top: 28px; }
+  .policy-nav { position: static; flex-direction: row; flex-wrap: wrap; border-left: 0; gap: 6px; }
+  .policy-nav a { margin: 0; border: 1px solid var(--line); border-radius: 20px; padding: 6px 14px; font-size: .95rem; }
+  .policy-nav a.active { border-color: var(--wine); }
+}
