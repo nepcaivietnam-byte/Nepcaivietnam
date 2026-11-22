@@ -1,0 +1,17 @@
+# Cấu hình deploy Render (Static Site) — Render tự đọc file này khi dùng "Blueprint"
+services:
+  - type: web
+    name: tram-atelier
+    runtime: static
+    buildCommand: ""          # web thuần HTML/CSS/JS, không cần build
+    staticPublishPath: .      # publish toàn bộ thư mục gốc
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=86400
